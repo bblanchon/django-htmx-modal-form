@@ -3,21 +3,21 @@
 <form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' class="modal-content">
   <div class="modal-header">
     <h5 class="modal-title">Edit Movie</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
   </div>
   <div class="modal-body">
-    <div class="mb-3">
-      <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}">Title</label>
       {% render_field form.title class="form-control" placeholder="Back to the Future II" %}
       <div class="invalid-feedback">{{ form.title.errors|first }}</div>
     </div>
-    <div class="mb-3">
-      <label for="{{ form.year.id_for_label }}" class="form-label">Year</label>
+    <div class="form-group">
+      <label for="{{ form.year.id_for_label }}">Year</label>
       {% render_field form.year class="form-control" placeholder="1980" %}
       <div class="invalid-feedback">{{ form.year.errors|first }}</div>
     </div>
-    <div class="mb-3">
-      <label for="{{ form.rating.id_for_label }}" class="form-label">Rating</label >
+    <div class="form-group">
+      <label for="{{ form.rating.id_for_label }}">Rating</label >
       {% render_field form.rating class="form-control" %}
       <div class="invalid-feedback">{{ form.rating.errors|first }}</div>
     </div>
@@ -27,7 +27,7 @@
     <button type="button" class="btn btn-danger" hx-post="{% url 'remove_movie' pk=movie.pk %}">Remove</button>
     <span class="flex-grow-1"></span>
     {% endif %}
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">
       Cancel
     </button>
     <button type="submit" class="btn btn-primary">Save</button>
