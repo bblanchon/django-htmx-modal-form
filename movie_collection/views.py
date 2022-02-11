@@ -25,7 +25,7 @@ def add_movie(request):
             return HttpResponse(status=204, headers={'HX-Trigger': 'movieListChanged'})
     else:
         form = MovieForm()
-    return render(request, 'movie_dialog.html', {
+    return render(request, 'movie_form.html', {
         'form': form,
     })
 
@@ -39,7 +39,7 @@ def edit_movie(request, pk):
             return HttpResponse(status=204, headers={'HX-Trigger': 'movieListChanged'})
     else:
         form = MovieForm(instance=movie)
-    return render(request, 'movie_dialog.html', {
+    return render(request, 'movie_form.html', {
         'form': form,
         'movie': movie,
     })
