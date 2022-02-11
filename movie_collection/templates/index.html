@@ -26,7 +26,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody hx-trigger="load, movieListChanged from:body" hx-get="{% url 'movie_list' %}" hx-target="this"  hx-swap="innerHTML settle:1s">
+        <tbody hx-trigger="load, movieListChanged from:body" hx-get="{% url 'movie_list' %}" hx-target="this">
           <tr>
             <td class="spinner-border" role="status">
               <span class="visually-hidden">Loading...</span>
