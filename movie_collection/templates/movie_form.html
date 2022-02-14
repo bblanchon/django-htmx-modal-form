@@ -1,14 +1,12 @@
-{% extends "base.html" %}
 {% load widget_tweaks %}
-
-{% block content %}
 {% with WIDGET_ERROR_CLASS='is-invalid' WIDGET_REQUIRED_CLASS='my_required' %}
-<form method="POST" action="{{ request.path }}">
+<form hx-post="{{ request.path }}" class="modal-content">
   {% csrf_token %}
-  <div class="px-5 my-5 text-center">
-    <h1>Edit Movie</h1>
+  <div class="modal-header">
+    <h5 class="modal-title">Edit Movie</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
-  <div>
+  <div class="modal-body">
     <div class="mb-3">
       <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
       {% render_field form.title class="form-control" placeholder="Back to the Future II" %}
@@ -25,12 +23,11 @@
       <div class="invalid-feedback">{{ form.rating.errors|first }}</div>
     </div>
   </div>
-  <div>
-    <a href="/" class="btn btn-secondary">
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
       Cancel
-    </a>
+    </button>
     <button type="submit" class="btn btn-primary">Save</button>
   </div>
 </form>
 {% endwith %}
-{% endblock %}

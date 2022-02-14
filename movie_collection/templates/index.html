@@ -20,7 +20,7 @@
     </tr>
   </tbody>
 </table>
-<a href="{% url 'add_movie' %}" class="btn btn-primary">
+<button hx-get="{% url 'add_movie' %}" hx-target="#dialog" class="btn btn-primary">
   Add a movie
-</a>
+</button>
 {% endblock %}
