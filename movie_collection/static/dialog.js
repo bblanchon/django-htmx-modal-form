@@ -15,4 +15,9 @@
       e.detail.shouldSwap = false
     }
   })
+
+  // Remove dialog content after hiding
+  htmx.on("hidden.bs.modal", () => {
+    document.getElementById("dialog").innerHTML = ""
+  })
 })()
