@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse
 
 from .models import Movie
 from .forms import MovieForm
@@ -20,7 +20,7 @@ def add_movie(request):
         form = MovieForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return HttpResponse(status=204)
     else:
         form = MovieForm()
     return render(request, 'movie_form.html', {
@@ -34,7 +34,7 @@ def edit_movie(request, pk):
         form = MovieForm(request.POST, instance=movie)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return HttpResponse(status=204)
     else:
         form = MovieForm(instance=movie)
     return render(request, 'movie_form.html', {
