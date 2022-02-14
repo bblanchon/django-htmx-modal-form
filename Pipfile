@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.2.*"
+django-widget-tweaks = "==1.4.*"
+
+[dev-packages]
+autopep8 = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+server = "python manage.py runserver"

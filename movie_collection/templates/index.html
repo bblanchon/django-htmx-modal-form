@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="px-5 my-5 text-center">
+  <h1>My Movie Collection</h1>
+  <p>A sample project that shows how to support modal forms with Django+HTMX with minimal JavaScript code.</p>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Rating</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in movies %}
+    <tr id="movie-{{ movie.pk }}" class="movie-row">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.get_rating_display }}</td>
+      <td>
+        <a class="btn btn-primary btn-sm" href="{% url 'edit_movie' pk=movie.pk %}">Edit</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'add_movie' %}" class="btn btn-primary">
+  Add a movie
+</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+{% with WIDGET_ERROR_CLASS='is-invalid' WIDGET_REQUIRED_CLASS='my_required' %}
+<form method="POST" action="{{ request.path }}">
+  {% csrf_token %}
+  <div class="px-5 my-5 text-center">
+    <h1>Edit Movie</h1>
+  </div>
+  <div>
+    <div class="mb-3">
+      <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+      {% render_field form.title class="form-control" placeholder="Back to the Future II" %}
+      <div class="invalid-feedback">{{ form.title.errors|first }}</div>
+    </div>
+    <div class="mb-3">
+      <label for="{{ form.year.id_for_label }}" class="form-label">Year</label>
+      {% render_field form.year class="form-control" placeholder="1980" %}
+      <div class="invalid-feedback">{{ form.year.errors|first }}</div>
+    </div>
+    <div class="mb-3">
+      <label for="{{ form.rating.id_for_label }}" class="form-label">Rating</label >
+      {% render_field form.rating class="form-control" %}
+      <div class="invalid-feedback">{{ form.rating.errors|first }}</div>
+    </div>
+  </div>
+  <div>
+    <a href="/" class="btn btn-secondary">
+      Cancel
+    </a>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
+{% endwith %}
+{% endblock %}
