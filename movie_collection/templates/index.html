@@ -14,17 +14,10 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
-    {% for movie in movies %}
-    <tr id="movie-{{ movie.pk }}" class="movie-row">
-      <td>{{ movie.title }}</td>
-      <td>{{ movie.year }}</td>
-      <td>{{ movie.get_rating_display }}</td>
-      <td>
-        <a class="btn btn-primary btn-sm" href="{% url 'edit_movie' pk=movie.pk %}">Edit</a>
-      </td>
+  <tbody hx-get="{% url 'movie_list' %}" hx-trigger="load">
+    <tr>
+      <td colspan="4">Loading...</td>
     </tr>
-    {% endfor %}
   </tbody>
 </table>
 <a href="{% url 'add_movie' %}" class="btn btn-primary">

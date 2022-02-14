@@ -1,0 +1,10 @@
+{% for movie in movies %}
+<tr id="movie-{{ movie.pk }}" class="movie-row">
+  <td>{{ movie.title }}</td>
+  <td>{{ movie.year }}</td>
+  <td>{{ movie.get_rating_display }}</td>
+  <td>
+    <a class="btn btn-primary btn-sm" href="{% url 'edit_movie' pk=movie.pk %}">Edit</a>
+  </td>
+</tr>
+{% endfor %}

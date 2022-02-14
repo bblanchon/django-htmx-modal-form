@@ -6,7 +6,11 @@ from .forms import MovieForm
 
 
 def index(request):
-    return render(request, 'index.html', {
+    return render(request, 'index.html')
+
+
+def movie_list(request):
+    return render(request, 'movie_list.html', {
         'movies': Movie.objects.all(),
     })
 
