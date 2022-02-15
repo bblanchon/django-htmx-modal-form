@@ -8,5 +8,6 @@ To run the demo locally:
 
 ```
 pipenv install
+pipenv run migrate
 pipenv run server
 ```
