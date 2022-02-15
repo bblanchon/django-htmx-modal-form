@@ -14,4 +14,5 @@ autopep8 = "*"
 python_version = "3.9"
 
 [scripts]
+migrate = "python manage.py migrate"
 server = "python manage.py runserver"
