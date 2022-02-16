@@ -1,5 +1,5 @@
 {% load widget_tweaks %}
-{% with WIDGET_ERROR_CLASS='is-invalid' WIDGET_REQUIRED_CLASS='my_required' %}
+{% with WIDGET_ERROR_CLASS='is-invalid' %}
 <form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' class="modal-content">
   <div class="modal-header">
     <h5 class="modal-title">Edit Movie</h5>
