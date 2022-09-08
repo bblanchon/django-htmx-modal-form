@@ -20,3 +20,5 @@ class Movie(models.Model):
         (4, "★★★★☆"),
         (5, "★★★★★"),
     ))
+
+    cover = models.FileField(blank=True)

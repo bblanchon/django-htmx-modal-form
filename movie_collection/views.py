@@ -21,7 +21,7 @@ def movie_list(request):
 
 def add_movie(request):
     if request.method == "POST":
-        form = MovieForm(request.POST)
+        form = MovieForm(request.POST, request.FILES)
         if form.is_valid():
             movie = form.save()
             return HttpResponse(
@@ -42,7 +42,7 @@ def add_movie(request):
 def edit_movie(request, pk):
     movie = get_object_or_404(Movie, pk=pk)
     if request.method == "POST":
-        form = MovieForm(request.POST, instance=movie)
+        form = MovieForm(request.POST, request.FILES, instance=movie)
         if form.is_valid():
             form.save()
             return HttpResponse(

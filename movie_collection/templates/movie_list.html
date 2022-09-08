@@ -1,6 +1,11 @@
 {% for movie in movies %}
 <tr id="movie-{{ movie.pk }}" class="movie-row">
-  <td>{{ movie.title }}</td>
+  <td>
+    {% if movie.cover %}
+    <img style="height: 2em" src="{{ movie.cover.url}}">
+    {% endif %}
+    {{ movie.title }}
+  </td>
   <td>{{ movie.year }}</td>
   <td>{{ movie.get_rating_display }}</td>
   <td>
