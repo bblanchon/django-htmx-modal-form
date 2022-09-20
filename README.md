@@ -13,6 +13,9 @@ Learn more about this technique here:
 * [Modal forms with Django+HTMX](https://youtu.be/3dyQigrEj8A) (YouTube video)
 * [Toasts with Django+HTMX](https://blog.benoitblanchon.fr/django-htmx-toasts/) (blog post)
 * [Toasts with Django+HTMX](https://youtu.be/pAtrj8A-Kl4) (YouTube video)
+* [Using the Django messages framework with HTMX](https://blog.benoitblanchon.fr/django-htmx-messages-framework/) (blog post)
+* [Django+HTMX: integration with the messages framework](https://youtu.be/I5_g7XYyemQ) (YouTube video)
+* [Django+HTMX: integration with the messages framework](https://github.com/bblanchon/django-htmx-messages-framework/) (GitHub repository)
 
 To run the demo locally:
 
