@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from django.contrib import messages
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'movie_collection',
+    'htmx_messages',
 
     'widget_tweaks',
 
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'htmx_messages.middleware.HtmxMessagesMiddleware',
 ]
 
 ROOT_URLCONF = 'django_htmx_modal_form.urls'
@@ -126,3 +129,14 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# This sets the mapping of message level to message tag, which is typically rendered as a CSS class in HTML.
+# https://docs.djangoproject.com/en/4.1/ref/settings/#message-tags
+MESSAGE_TAGS = {
+    messages.DEBUG: "bg-light",
+    messages.INFO: "text-white bg-primary",
+    messages.SUCCESS: "text-white bg-success",
+    messages.WARNING: "text-dark bg-warning",
+    messages.ERROR: "text-white bg-danger",
+}

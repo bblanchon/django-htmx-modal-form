@@ -1,5 +1,4 @@
-import json
-
+from django.contrib import messages
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
@@ -24,14 +23,13 @@ def add_movie(request):
         form = MovieForm(request.POST)
         if form.is_valid():
             movie = form.save()
+            messages.success(request, f"{movie.title} added.")
             return HttpResponse(
                 status=204,
                 headers={
-                    'HX-Trigger': json.dumps({
-                        "movieListChanged": None,
-                        "showMessage": f"{movie.title} added."
-                    })
-                })
+                    'HX-Trigger': "movieListChanged",
+                }
+            )
     else:
         form = MovieForm()
     return render(request, 'movie_form.html', {
@@ -45,13 +43,11 @@ def edit_movie(request, pk):
         form = MovieForm(request.POST, instance=movie)
         if form.is_valid():
             form.save()
+            messages.success(request, f"{movie.title} updated.")
             return HttpResponse(
                 status=204,
                 headers={
-                    'HX-Trigger': json.dumps({
-                        "movieListChanged": None,
-                        "showMessage": f"{movie.title} updated."
-                    })
+                    'HX-Trigger': "movieListChanged",
                 }
             )
     else:
@@ -66,11 +62,10 @@ def edit_movie(request, pk):
 def remove_movie(request, pk):
     movie = get_object_or_404(Movie, pk=pk)
     movie.delete()
+    messages.success(request, f"{movie.title} deleted.")
     return HttpResponse(
         status=204,
         headers={
-            'HX-Trigger': json.dumps({
-                "movieListChanged": None,
-                "showMessage": f"{movie.title} deleted."
-            })
-        })
+            'HX-Trigger': "movieListChanged"
+        }
+    )
