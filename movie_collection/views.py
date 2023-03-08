@@ -25,9 +25,9 @@ def add_movie(request):
             movie = form.save()
             messages.success(request, f"{movie.title} added.")
             return HttpResponse(
-                status=204,
                 headers={
-                    'HX-Trigger': "movieListChanged",
+                    'HX-Trigger': '{"movieListChanged":true,"closeModal":true}',
+                    'HX-Reswap': "none",
                 }
             )
     else:
@@ -45,9 +45,9 @@ def edit_movie(request, pk):
             form.save()
             messages.success(request, f"{movie.title} updated.")
             return HttpResponse(
-                status=204,
                 headers={
-                    'HX-Trigger': "movieListChanged",
+                    'HX-Trigger': '{"movieListChanged":true,"closeModal":true}',
+                    'HX-Reswap': "none",
                 }
             )
     else:
@@ -64,8 +64,8 @@ def remove_movie(request, pk):
     movie.delete()
     messages.success(request, f"{movie.title} deleted.")
     return HttpResponse(
-        status=204,
         headers={
-            'HX-Trigger': "movieListChanged"
+            'HX-Trigger': '{"movieListChanged":true,"closeModal":true}',
+            'HX-Reswap': "none",
         }
     )
