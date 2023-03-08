@@ -7,6 +7,8 @@ This project demonstrates how to show a Django Form in a modal dialog box using 
 This branch contains the **Bootstrap 5** version.  
 See also the [Bootstrap 4 version](https://github.com/bblanchon/django-htmx-modal-form/tree/bootstrap4) in this repository, or a [Tailwind + Alpine.js version](https://github.com/geoffbeier/django-htmx-modal-form) in @geoffbeier's fork.
 
+There are two additionnal branches that show how to use this technique with the Django messages framework: [with the `HX-Trigger` technique](https://github.com/bblanchon/django-htmx-modal-form/tree/messages-framework) and [with the "OOB swap" technique](https://github.com/bblanchon/django-htmx-modal-form/tree/messages-framework-oob)
+
 Learn more about this technique here:
 
 * [Modal forms with Django+HTMX](https://blog.benoitblanchon.fr/django-htmx-modal-form/) (blog post)
